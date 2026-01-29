@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korami | Turning Daily Attention into Real-World Value</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8A2BE2;
+            --primary-orange: #FF6B35;
+            --dark-bg: #0A0A14;
+            --dark-card: #151520;
+            --light-text: #F5F5FF;
+            --gray-text: #A0A0C0;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --border-radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            text-align: center;
+            flex: 1;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .stats-widget {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .user-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            background: var(--glass-bg);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-balance {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .mission-statement {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 900px;
+            margin: 40px auto 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .mission-statement h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .mission-statement p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--gray-text);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+        }
+
+        /* Marketplace Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-purple);
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        .redeem-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .redeem-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        /* How It Works Section */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            min-width: 60px;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: var(--gray-text);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .principle-card {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .principle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 60px 40px;
+            margin-top: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activities-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--light-text);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .activity-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-description {
+            color: var(--gray-text);
+            margin-bottom: 20px;
+        }
+
+        .activity-reward {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .founder-contact {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            width: 100%;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .founder-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--light-text);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 53, 0.1));
+            border-radius: var(--border-radius);
+            padding: 60px 40px;
+            text-align: center;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--gray-text);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        .demo-note {
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 10px;
+            padding: 10px 15px;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .website-link {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .website-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .stats-widget {
+                gap: 15px;
+            }
+            
+            .stat-value {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats-widget {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 220px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .step-number {
+                min-width: auto;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .activities-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="stats-widget">
+                    <div class="stat-item">
+                        <div class="stat-value" id="activeUsers">187,432</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="productsRedeemed">63,219</div>
+                        <div class="stat-label">Products Redeemed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="koramiDistributed">12,745,830</div>
+                        <div class="stat-label">Korami Distributed</div>
+                    </div>
+                </div>
+                
+                <div class="logo-section">
+                    <div class="logo">KORAMI</div>
+                    <div class="logo-subtitle">Turning daily human attention into real-world value.</div>
+                </div>
+                
+                <div class="user-widget">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-balance">Your balance: <span id="userBalance">156</span> KORAMI</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>A <span class="hero-highlight">transparent, sustainable</span> system that converts active daily engagement into real products and services</h1>
+            <p>Korami transforms human attention into verified social value without speculative economics, starting with emerging markets and scaling globally.</p>
+            
+            <div class="mission-statement">
+                <h3>For Sponsors & Investors</h3>
+                <p>Korami creates a closed-loop ethical ecosystem where advertising and sponsorship revenue directly fund real-world benefits for engaged users. Each Korami coin represents verified daily engagement, has no cash value, and when redeemed, triggers real fiat payments to partners. This creates predictable, transparent value flows with measurable social impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace">
+        <div class="container">
+            <h2 class="section-title">Korami Marketplace</h2>
+            <p class="section-subtitle">Users redeem earned Korami for real products and services. Partners receive fiat payments funded by advertising and sponsorship revenue.</p>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="product-title">Small Meal</h3>
+                    <p class="product-description">A nutritious meal from local partner restaurants. Available in participating areas.</p>
+                    <div class="product-price">20 KORAMI</div>
+                    <button class="redeem-btn">Redeem with Korami</button>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3 class="product-title">Mobile Data Bundle</h3>
+                    <p class="product-description">1GB of mobile data for 7 days. Compatible with major carriers.</p>
+                    <div class="product-price">15 KORAMI</div>
+                    <button class="redeem-btn">Redeem with Korami</button>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="product-title">Educational Course</h3>
+                    <p class="product-description">Access to a premium digital skills course. Complete at your own pace.</p>
+                    <div class="product-price">50 KORAMI</div>
+                    <button class="redeem-btn">Redeem with Korami</button>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3 class="product-title">Cloud Storage</h3>
+                    <p class="product-description">100GB of cloud storage for 6 months. Secure and accessible anywhere.</p>
+                    <div class="product-price">30 KORAMI</div>
+                    <button class="redeem-btn">Redeem with Korami</button>
+                </div>
+            </div>
+            
+            <div class="demo-note">Note: This is a simulation for demonstration purposes only.</div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Korami Works</h2>
+            <p class="section-subtitle">A transparent, non-speculative system designed for sustainability and social impact.</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Daily Active Engagement = 1 Korami</h3>
+                        <p>Users earn exactly one Korami coin per day by actively participating in games, challenges, learning modules, and interactions on the platform. This creates a fixed, predictable issuance system.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Attention Generates Real Revenue</h3>
+                        <p>User engagement creates legitimate advertising and sponsorship value. This revenue is collected in fiat currency and held in transparent escrow accounts.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Korami Has No Cash Value</h3>
+                        <p>Korami coins cannot be bought, sold, or converted to cash. They exist solely as verified engagement tokens with no speculative element, eliminating volatility and manipulation risks.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Redemption Triggers Real Payments</h3>
+                        <p>When users redeem Korami for products or services, Korami uses the reserved fiat revenue to pay partners directly. This creates a closed, transparent flow from attention to real-world value.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 40px; font-size: 1.8rem;">Core Technical Principles</h3>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Fixed Issuance</h3>
+                    <p>1 Korami = 1 active day. No inflation, no arbitrary creation.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Anti-Inflation Logic</h3>
+                    <p>Supply is tied directly to verified engagement, not monetary policy.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>No Speculation</h3>
+                    <p>Cannot be traded or converted to cash. Purely utility-based.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Full Transparency</h3>
+                    <p>All flows publicly verifiable. Revenue, payments, and Korami distribution.</p>
+                </div>
+            </div>
+            
+            <!-- Activities Section -->
+            <div class="activities-section">
+                <h3 class="activities-title">Earn Korami Through Daily Activities</h3>
+                <p style="text-align: center; color: var(--gray-text); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Users earn 1 Korami coin per day by actively engaging with the platform. Here are the main activities that count toward your daily Korami:
+                </p>
+                
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h4 class="activity-title">Interactive Games</h4>
+                        <p class="activity-description">Play our curated selection of educational and entertaining games. Each game session contributes to your daily activity goal.</p>
+                        <div class="activity-reward">+1 Korami per day</div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h4 class="activity-title">Platform Blog</h4>
+                        <p class="activity-description">Read articles, participate in discussions, and engage with educational content on the Korami blog platform.</p>
+                        <div class="activity-reward">+1 Korami per day</div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h4 class="activity-title">Social Activities</h4>
+                        <p class="activity-description">Participate in community challenges, share meaningful content, and engage with other users on social features.</p>
+                        <div class="activity-reward">+1 Korami per day</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px; color: var(--gray-text); font-size: 0.9rem;">
+                    <p>Note: Users can only earn 1 Korami per day regardless of how many activities they complete. This ensures fair distribution and prevents exploitation.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Social Mission & Vision</h3>
+                <p style="color: var(--gray-text); font-size: 1.1rem;">Korami begins in emerging economies where attention has value but often lacks conversion mechanisms to tangible goods. By creating a direct path from engagement to essentials, we build sustainable digital economies that respect users, reward partners, and provide sponsors with measurable impact. As the community grows, Korami scales globally, proving that ethical attention economies can thrive without speculation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="founder-contact">
+                    <h3 class="founder-title">Contact Information</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 5px;">Email</div>
+                                <div style="color: var(--gray-text);">info@korami.shop</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 5px;">Website</div>
+                                <div style="color: var(--gray-text);">korami.shop</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 5px;">Partnership Inquiries</div>
+                                <div style="color: var(--gray-text);">info@korami.shop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-box">
+                    <h2 class="cta-title">Become a Founding Sponsor</h2>
+                    <p class="cta-subtitle">Join us in building a new ethical attention economy. Turn human engagement into measurable social impact with full transparency and sustainability.</p>
+                    <a href="mailto:info@korami.shop" class="cta-btn">Turn Attention Into Impact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Korami Platform &copy; 2026. Turning daily human attention into real-world value.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Official website: <a href="https://korami.shop" class="website-link" target="_blank">korami.shop</a> | Email: <a href="mailto:info@korami.shop" class="website-link">info@korami.shop</a></p>
+            <div class="demo-note">DEMO SIMULATION</div>
+        </div>
+    </footer>
+
+    <script>
+        // Animated counters for statistics
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const startValue = parseInt(element.textContent.replace(/,/g, ''));
+            const increment = (targetValue - startValue) / (duration / 16);
+            let current = startValue;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+                    clearInterval(timer);
+                    current = targetValue;
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+        
+        // Initialize counters with simulated growth
+        function initializeCounters() {
+            // Starting values
+            const activeUsers = 187432;
+            const productsRedeemed = 63219;
+            const koramiDistributed = 12745830;
+            
+            // Target values (slightly higher for animation)
+            const activeUsersTarget = activeUsers + Math.floor(Math.random() * 1500);
+            const productsRedeemedTarget = productsRedeemed + Math.floor(Math.random() * 800);
+            const koramiDistributedTarget = koramiDistributed + Math.floor(Math.random() * 15000);
+            
+            // Animate counters
+            animateCounter('activeUsers', activeUsersTarget);
+            animateCounter('productsRedeemed', productsRedeemedTarget);
+            animateCounter('koramiDistributed', koramiDistributedTarget);
+            
+            // Update user balance with slight random variation
+            const userBalance = document.getElementById('userBalance');
+            const currentBalance = parseInt(userBalance.textContent);
+            const newBalance = currentBalance + Math.floor(Math.random() * 3);
+            userBalance.textContent = newBalance;
+        }
+        
+        // Redeem button functionality
+        function setupRedeemButtons() {
+            const redeemButtons = document.querySelectorAll('.redeem-btn');
+            
+            redeemButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    const productPrice = parseInt(productCard.querySelector('.product-price').textContent);
+                    
+                    // Get current balance
+                    const balanceElement = document.getElementById('userBalance');
+                    let currentBalance = parseInt(balanceElement.textContent);
+                    
+                    // Check if user has enough Korami
+                    if (currentBalance >= productPrice) {
+                        // Update balance
+                        currentBalance -= productPrice;
+                        balanceElement.textContent = currentBalance;
+                        
+                        // Show success message
+                        alert(`Successfully redeemed ${productName}! ${productPrice} Korami deducted from your balance.`);
+                        
+                        // Increment products redeemed counter
+                        const productsElement = document.getElementById('productsRedeemed');
+                        let productsCount = parseInt(productsElement.textContent.replace(/,/g, ''));
+                        productsCount++;
+                        productsElement.textContent = productsCount.toLocaleString();
+                    } else {
+                        alert(`Insufficient Korami balance. You need ${productPrice} Korami to redeem this item.`);
+                    }
+                });
+            });
+        }
+        
+        // Simulate live updates to counters
+        function simulateLiveUpdates() {
+            // Update counters every 30 seconds
+            setInterval(initializeCounters, 30000);
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCounters();
+            setupRedeemButtons();
+            simulateLiveUpdates();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
