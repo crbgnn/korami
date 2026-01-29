@@ -196,6 +196,97 @@
             line-height: 1.5;
         }
 
+        /* Korami Equation Styling */
+.korami-equation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px auto 30px;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, 
+        rgba(138, 43, 226, 0.15), 
+        rgba(255, 107, 53, 0.15));
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    backdrop-filter: blur(5px);
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+.equation-icon {
+    font-size: 1.5rem;
+    color: var(--primary-orange);
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.equation-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-purple), var(--primary-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Responsive styles per la equation */
+@media (max-width: 768px) {
+    .korami-equation {
+        padding: 10px 20px;
+        margin: 20px auto 25px;
+        max-width: 350px;
+    }
+    
+    .equation-text {
+        font-size: 1.1rem;
+    }
+    
+    .equation-icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .korami-equation {
+        padding: 8px 15px;
+        margin: 15px auto 20px;
+        max-width: 300px;
+        gap: 10px;
+    }
+    
+    .equation-text {
+        font-size: 1rem;
+    }
+    
+    .equation-icon {
+        font-size: 1.1rem;
+    }
+}
+        
         .mission-statement {
             background: var(--glass-bg);
             border-radius: var(--border-radius);
@@ -750,7 +841,11 @@
         <div class="container">
             <h1>A <span class="hero-highlight">transparent, sustainable</span> system that converts active daily engagement into real products and services</h1>
             <p>Korami transforms human attention into verified social value without speculative economics, starting with emerging markets and scaling globally.</p>
-            
+            <div class="korami-equation">
+    <div class="equation-icon">⚡</div>
+    <div class="equation-text">1 KORAMI = 1 ACTIVE DAY</div>
+    <div class="equation-icon">⚡</div>
+</div>
             <div class="mission-statement">
                 <h3>For Sponsors & Investors</h3>
                 <p>Korami creates a closed-loop ethical ecosystem where advertising and sponsorship revenue directly fund real-world benefits for engaged users. Each Korami coin represents verified daily engagement, has no cash value, and when redeemed, triggers real fiat payments to partners. This creates predictable, transparent value flows with measurable social impact.</p>
