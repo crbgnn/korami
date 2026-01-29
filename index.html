@@ -607,154 +607,108 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 140px; /* Aumentato padding per header più alto su mobile */
-            }
-            
-            html {
-                scroll-padding-top: 140px; /* Aumentato per compensare header più alto */
-            }
-            
-            header {
-                height: 140px; /* Header più alto su mobile per contenere tutto */
-                padding: 10px 0;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-                justify-content: flex-start;
-            }
-            
-            .logo-section {
-                order: 1;
-                flex: none;
-                width: 100%;
-            }
-            
-            .stats-widget {
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                margin-top: 5px;
-            }
-            
-            .user-widget {
-                order: 2;
-                align-self: flex-end;
-                position: absolute;
-                right: 20px;
-                top: 15px;
-            }
-            
-            .hero {
-                padding: 40px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-                margin-bottom: 15px;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-            
-            .step {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-                padding: 20px;
-            }
-            
-            .step-number {
-                min-width: auto;
-            }
-            
-            .activities-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .mission-statement {
-                padding: 20px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
+    body {
+        padding-top: 140px;
+    }
+    
+    html {
+        scroll-padding-top: 140px;
+    }
+    
+    header {
+        height: 140px;
+        padding: 10px 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: flex-start;
+        height: auto; /* Aggiunto */
+        min-height: 140px; /* Aggiunto */
+    }
+    
+    .logo-section {
+        order: 1;
+        flex: none;
+        width: 100%;
+        margin-top: 10px; /* Aggiunto per spaziare dal top */
+    }
+    
+    .stats-widget {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 10px; /* Aggiunto */
+    }
+    
+    .user-widget {
+        order: 2;
+        align-self: flex-end;
+        position: absolute;
+        right: 20px;
+        top: 10px; /* Modificato da 15px a 10px */
+        z-index: 10; /* Aggiunto per assicurarsi sia sopra */
+    }
         @media (max-width: 576px) {
-            body {
-                padding-top: 140px;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            
-            .cta-title {
-                font-size: 1.5rem;
-            }
-            
-            .activities-section {
-                padding: 30px 15px;
-                margin-top: 40px;
-            }
-            
-            .activities-title {
-                font-size: 1.5rem;
-            }
-            
-            .stat-value {
-                font-size: 0.9rem;
-            }
-            
-            .stat-label {
-                font-size: 0.6rem;
-            }
-            
-            .user-balance {
-                font-size: 0.9rem;
-            }
-            
-            .user-widget {
-                padding: 6px 10px;
-            }
-            
-            .user-avatar {
-                width: 32px;
-                height: 32px;
-                font-size: 0.8rem;
-            }
+    body {
+        padding-top: 140px;
+    }
+    
+    .user-widget {
+        padding: 5px 8px; /* Ridotto padding */
+        top: 8px; /* Ridotto ulteriormente */
+        right: 15px; /* Avvicinato al bordo */
+    }
+    
+    .user-avatar {
+        width: 28px; /* Ridotto dimensione */
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    
+    .user-balance {
+        font-size: 0.8rem; /* Ridotto font size */
+    }
+    
+    .logo {
+        font-size: 1.8rem; /* Assicurati sia abbastanza grande */
+        margin-bottom: 3px; /* Ridotto margine */
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem;
+        line-height: 1.1; /* Migliora leggibilità */
+    }
         }
         
         @media (max-width: 400px) {
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            .logo-subtitle {
-                font-size: 0.7rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.4rem;
-            }
+    .logo {
+        font-size: 2rem; /* Aumentato per visibilità */
+        margin-top: 5px; /* Aggiunto spazio sopra */
+    }
+    
+    .logo-subtitle {
+        font-size: 0.65rem;
+        max-width: 300px; /* Limita larghezza */
+    }
+    
+    .user-widget {
+        padding: 4px 6px;
+        top: 6px;
+        right: 10px;
+    }
+    
+    .user-balance {
+        font-size: 0.75rem; /* Ancora più piccolo se necessario */
+    }
+    
+    /* Se il testo è ancora troppo lungo, nascondi parte del testo */
+    .user-balance span {
+        display: inline-block; /* Mantiene l'allineamento */
+    }
+}
         }
     </style>
 </head>
